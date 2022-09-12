@@ -1,0 +1,55 @@
+.movie-card {
+  max-width: 100%;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+.movie-attributes {
+  display: flex;
+  justify-content: space-between;
+  margin: 14px;
+}
+
+.movie-info__name {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #000000;
+  margin: 0;
+}
+
+.movie-info__duration {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  color: #A0A0A0;
+  margin: 9px 0 0 0;
+
+}
+
+.button-save {
+  background-image: url("../../images/save-movie.svg");
+  background-color: #FFFFFF;
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.button-save:hover {
+  opacity: .8;
+}
+
+.button-save_active {
+  background-image: url("../../images/save_active.svg");
+}
+
+.button-delete {
+  background-image: url("../../images/delete_movie_button.svg");
+}
+
+.movie-card__photo {
+  width: 100%;
+}

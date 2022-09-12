@@ -1,0 +1,146 @@
+.profile {
+  margin: 74px 0 0 0;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.profile__name {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  margin: 0;
+}
+
+.profile__form {
+  max-width: 410px;
+  margin: 0 auto;
+  padding: 106px 0 0 0;
+}
+
+.info-box:nth-child(2) {
+  border: none;
+}
+
+.info-box {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.info-box__name {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  margin: 17px 0 16px 0;
+}
+
+.info-box__input {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: right;
+  color: #000000;
+  border: none;
+  padding: 0;
+  outline: none;
+  background-color: #FFFFFF;
+}
+
+.info-box__input::placeholder {
+  color: #000000;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.profile__save {
+  width: 100%;
+  background: #3456F3;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+  border: none;
+  margin-top: 204px;
+  height: 45px;
+  cursor: pointer;
+}
+
+.profile__save:hover {
+  opacity: .8;
+}
+
+.button-profile {
+  gap: 16px;
+  flex-direction: column;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  margin-top: 204px;
+}
+
+.profile__edit-button {
+  padding: 0;
+  border: none;
+  color: #000000;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+.profile__edit-button:hover {
+  opacity: .7;
+}
+
+.profile__exit-button {
+  padding: 0;
+  border: none;
+  color: #FF4062;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+.profile__exit-button:hover {
+  opacity: .7;
+}
+
+@media screen and (max-width: 842px) {
+  .profile {
+    margin-top: 236px;
+  }
+
+  .profile__save {
+    margin-top: 194px;
+  }
+
+  .button-profile {
+    margin-top: 194px;
+  }
+}
+
+@media screen and (max-width: 538px) {
+  .profile {
+    margin-top: 70px;
+  }
+
+  .profile__save {
+    margin-top: 363px;
+  }
+
+  .button-profile {
+    margin-top: 363px;
+  }
+
+  .profile__form {
+    padding: 80px 0 0 0;
+
+    max-width: 260px;
+  }
+
+  .button-profile {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

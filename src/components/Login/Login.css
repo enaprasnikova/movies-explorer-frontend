@@ -1,0 +1,138 @@
+.login {
+  font-family: 'Inter', Arial, sans-serif;
+  max-width: 396px;
+  margin: 0 auto;
+}
+
+.login__top {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.login__logo {
+  background-image: url(../../images/logo-header.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 38px;
+  height: 38px;
+  margin-top: 70px;
+}
+
+.login__welcome {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 40px 0;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-name {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #A0A0A0;
+}
+
+.login__input {
+  border: none;
+  background: #F9F9F9;
+  border-radius: 8px;
+  height: 46px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+  outline: none;
+  padding: 0 15px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.login__submit-button {
+  background: #000000;
+  border-radius: 3px;
+  border: none;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  padding: 13px 0 15px 0;
+  margin: 179px 0 16px 0;
+  cursor: pointer;
+}
+
+.login__submit-button:hover {
+  opacity: .8;
+}
+
+.login__sign-in {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.login__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #A0A0A0;
+  margin: 0;
+}
+
+.login__login-link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  text-decoration: none;
+  margin: 0;
+}
+
+.login__login-link:hover {
+  opacity: .7;
+}
+
+@media screen and (max-width: 538px) {
+  .login {
+    max-width: 260px;
+  }
+
+  .login__top {
+    align-items: center;
+  }
+
+  .login__logo {
+    margin-top: 56px;
+  }
+
+  .login__welcome {
+    margin: 50px 0 80px 0;
+  }
+
+  .login__sign-in {
+    gap: 7px;
+    width: 100%;
+  }
+
+  .login__text {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .login__login-link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
