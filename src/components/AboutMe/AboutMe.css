@@ -16,8 +16,8 @@
 
 .about-me__container {
   display: flex;
-  justify-content: space-between;
   margin: 0 70px;
+  gap: 18vw;
 }
 
 .info-container {
@@ -70,6 +70,7 @@
   max-width: 100%;
   min-width: 255px;
   margin: 66px 0 0 0;
+  object-position: top;
 }
 
 @media screen and (max-width: 768px) {
@@ -83,6 +84,7 @@
 
   .about-me__container {
     margin: 0 50px;
+    gap: 6vw;
   }
 
   .info-container {
@@ -127,10 +129,16 @@
   .about-me__container {
     flex-direction: column-reverse;
     margin: 0 14px;
+    gap: 40px;
   }
 
   .about-me__photo {
     margin-top: 60px;
+  }
+
+  .info-container {
+    max-width: 100%;
+    margin: 0;
   }
 
   .info-container__name {
@@ -147,9 +155,5 @@
   .info-container__life {
     font-size: 11px;
     line-height: 16px;
-  }
-
-  .info-container__link {
-    margin-top: 40px;
   }
 }

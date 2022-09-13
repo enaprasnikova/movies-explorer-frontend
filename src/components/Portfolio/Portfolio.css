@@ -22,6 +22,14 @@
   justify-content: space-between;
   margin: 0;
   border-bottom: 1px solid #E8E8E8;
+  text-decoration: none;
+
+  height: 89px;
+  align-items: center;
+}
+
+.project-info:hover {
+  opacity: .7;
 }
 
 .project-info__name {
@@ -30,7 +38,7 @@
   letter-spacing: -0.04em;
   color: #000000;
   margin: 0;
-  padding: 20px 0 19px 0;
+  padding: 0;
 }
 
 .project-info:last-child {
@@ -38,14 +46,9 @@
 }
 
 .project-info__link {
-  background-image: url("../../images/link-portfolio.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 29px;
-}
-
-.project-info__link:hover {
-  opacity: .7;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 @media screen and (max-width: 768px) {
@@ -65,11 +68,11 @@
 
   .project-info__name {
     font-size: 28px;
-    padding: 20px 0 19px 0;
   }
 
   .project-info__link {
-    width: 27px;
+    width: 22px;
+    height: 22px;
   }
 }
 
@@ -89,9 +92,17 @@
     list-style-type: none;
   }
 
+  .project-info {
+    height: 67px;
+  }
+
   .project-info__name {
     line-height: 28px;
     font-size: 18px;
-    padding: 20px 0 19px 0;
+  }
+
+  .project-info__link {
+    width: 16px;
+    height: 16px;
   }
 }

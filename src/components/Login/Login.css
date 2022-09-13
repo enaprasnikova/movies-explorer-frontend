@@ -2,6 +2,7 @@
   font-family: 'Inter', Arial, sans-serif;
   max-width: 396px;
   margin: 0 auto;
+  flex-grow: 1;
 }
 
 .login__top {

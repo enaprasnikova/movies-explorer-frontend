@@ -31,58 +31,55 @@ function App() {
 
   return (
     <div className="App">
-      <div className="top">
-        <Switch>
 
-          <Route exact path="/">
-            <Main/>
-          </Route>
+      <Switch>
+        <Route exact path="/">
+          <Main/>
+        </Route>
 
-          <Route path="/movies">
-            <Movies
-              onClick={handleBurgerMenuClick}
-              isOpen={isBurgerMenuOpen}
-              onClose={closeBurgerMenu}
-              width={windowWidth}
-            />
-          </Route>
+        <Route path="/movies">
+          <Movies
+            onClick={handleBurgerMenuClick}
+            isOpen={isBurgerMenuOpen}
+            onClose={closeBurgerMenu}
+            width={windowWidth}
+          />
+        </Route>
 
-          <Route path="/saved-movies">
-            <SavedMovies
-              onClick={handleBurgerMenuClick}
-              isOpen={isBurgerMenuOpen}
-              onClose={closeBurgerMenu}
-              width={windowWidth}
-            />
-          </Route>
+        <Route path="/saved-movies">
+          <SavedMovies
+            onClick={handleBurgerMenuClick}
+            isOpen={isBurgerMenuOpen}
+            onClose={closeBurgerMenu}
+            width={windowWidth}
+          />
+        </Route>
 
-          <Route path="/profile">
-            <Profile
-              onClick={handleBurgerMenuClick}
-              isOpen={isBurgerMenuOpen}
-              onClose={closeBurgerMenu}
-              width={windowWidth}
-            />
-          </Route>
+        <Route path="/profile">
+          <Profile
+            onClick={handleBurgerMenuClick}
+            isOpen={isBurgerMenuOpen}
+            onClose={closeBurgerMenu}
+            width={windowWidth}
+          />
+        </Route>
 
-          <Route path="/signin">
-            <Login/>
-          </Route>
+        <Route path="/signin">
+          <Login/>
+        </Route>
 
-          <Route path="/signup">
-            <Register/>
-          </Route>
+        <Route path="/signup">
+          <Register/>
+        </Route>
 
-          <Route path="*">
-            <PageNotFound/>
-          </Route>
+        <Route path="*">
+          <PageNotFound/>
+        </Route>
+      </Switch>
 
-        </Switch>
-      </div>
       <Footer/>
 
     </div>
-
 
   );
 }

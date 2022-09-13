@@ -11,7 +11,7 @@ function SearchForm() {
             className="form__search"
             placeholder="Фильм"
           />
-          <button className="form__button">Поиск</button>
+          <button className="form__button" type="button">Поиск</button>
         </div>
 
         <div className="search-form__slider">

@@ -1,6 +1,7 @@
 .profile {
   margin: 74px 0 0 0;
   font-family: 'Inter', Arial, sans-serif;
+  flex-grow: 1;
 }
 
 .profile__name {

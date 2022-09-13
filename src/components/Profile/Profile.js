@@ -40,7 +40,7 @@ function Profile({ width, isOpen, onClick, onClose }) {
           <button type="submit" className="profile__save" style={{display: isHide? 'none' : 'block'}}>Сохранить</button>
           <div className="button-profile" style={{display: isHide ? 'flex' : 'none'}}>
             <button type="text" className="profile__edit-button" onClick={changeDisplay}>Редактировать</button>
-            <button className="profile__exit-button">Выйти из аккаунта</button>
+            <button className="profile__exit-button" type="text">Выйти из аккаунта</button>
           </div>
         </form>
       </section>

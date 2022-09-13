@@ -7,19 +7,19 @@ function BurgerMenu({isOpen, onClick, onClose}) {
 
   return (
     <>
-      <button className="menu" onClick={onClick}></button>
+      <button className="menu" onClick={onClick} type="button"></button>
       <div className={`container-menu ${isOpen ?'container-menu_opened' : ''}`}>
         <div className="menu-white">
-          <button className="menu menu-white__close" onClick={onClose}></button>
+          <button className="menu menu-white__close" onClick={onClose} type="button"></button>
           <ul className="container-menu__links">
             <li className="container-menu__link">
-              <Link className="container-menu__text">Главная</Link>
+              <Link to="/" className="container-menu__text">Главная</Link>
             </li>
             <li className="container-menu__link">
-              <Link className="container-menu__text">Фильмы</Link>
+              <Link to="/movies" className="container-menu__text">Фильмы</Link>
             </li>
             <li className="container-menu__link">
-              <Link className="container-menu__text">Сохранённые фильмы</Link>
+              <Link to="/saved-movies" className="container-menu__text">Сохранённые фильмы</Link>
             </li>
           </ul>
           <Link to="/profile" className="navigation__account btn-burger">
