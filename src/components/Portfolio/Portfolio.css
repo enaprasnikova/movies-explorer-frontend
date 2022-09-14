@@ -13,6 +13,7 @@
 }
 
 .container-project {
+  list-style-type: none;
   margin: 30px 70px 0 70px;
   padding: 0;
 }

@@ -12,11 +12,11 @@ import Footer from "../Footer/Footer";
 import PageNotFound from "../PageNotFound/PageNotFound";
 
 function App() {
-  const [windowWidth, setWindowWidth] = useState(window.outerWidth);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
 
   function handleResize() {
-    setWindowWidth(window.outerWidth);
+    setWindowWidth(window.innerWidth);
   }
 
   window.addEventListener('resize', handleResize);

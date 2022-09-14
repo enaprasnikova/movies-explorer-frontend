@@ -17,6 +17,7 @@
 .header__container {
   font-family: 'Inter',Arial, sans-serif;
   max-width: 1140px;
+  min-width: 270px;
   display: flex;
   justify-content: space-between;
   padding: 18px 0;

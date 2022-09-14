@@ -22,7 +22,8 @@
   max-width: 1140px;
   padding: 0;
   display: flex;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
+  gap: 7vw;
 }
 
 .project__content {
@@ -123,6 +124,7 @@
   .container-info {
     margin: 0 18px;
     flex-direction: column;
+    gap: 0;
   }
 
   .project__content {

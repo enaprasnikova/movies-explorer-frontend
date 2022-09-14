@@ -1,6 +1,6 @@
 .card-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(339px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   max-width: 1140px;
   row-gap: 30px;
   column-gap: 24px;
@@ -28,13 +28,13 @@
 
 .cards__more-container {
   max-width: 1140px;
-  min-width: 300px;
+  min-width: 280px;
   margin: 80px 70px;
 }
 
 @media screen and (max-width: 842px) {
   .card-list {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     row-gap: 36px;
     column-gap: 30px;
     margin: 0 30px;
