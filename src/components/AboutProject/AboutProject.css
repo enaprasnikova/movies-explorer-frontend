@@ -1,0 +1,162 @@
+.project {
+  padding: 110px 0;
+}
+
+.project__info {
+  font-family: 'Inter', Arial, sans-serif;
+  border-bottom: 1px solid black;
+  max-width: 1140px;
+  padding-bottom: 23px;
+  margin: 0 70px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  color: #000000;
+}
+
+.container-info {
+  list-style-type: none;
+  margin: 0 70px;
+  max-width: 1140px;
+  padding: 0;
+  display: flex;
+  /*justify-content: space-between;*/
+  gap: 7vw;
+}
+
+.project__content {
+  margin: 70px 0 0 0;
+}
+
+.project__about {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.project__text {
+  margin: 26px 0 0 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  max-width: 550px;
+}
+
+.container-time {
+  margin: 110px 70px 0 70px;
+  display: grid;
+  max-width: 1140px;
+  grid-template-columns: 1fr 4fr;
+  font-style: normal;
+}
+
+.project__time {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  margin: 0;
+  padding: 9px 0 10px 0;
+}
+
+.project__time_back {
+  background-color: black;
+  color: #FFFFFF;
+}
+
+.project__time_front {
+  background-color: #F2F2F2;
+  color: #000000;
+}
+
+.project__stage {
+  margin: 14px 0 0 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #A0A0A0;
+}
+
+@media screen and (max-width: 768px) {
+  .project {
+    padding: 90px 0;
+  }
+
+  .project__info {
+    margin: 0 50px;
+  }
+
+  .container-info {
+    margin: 0 50px;
+  }
+
+  .project__text {
+    margin: 22px 0 0 0;
+    font-size: 12px;
+    line-height: 18px;
+    max-width: 550px;
+  }
+
+  .container-time {
+    margin: 93px 50px 0 50px;
+  }
+
+}
+
+@media screen and (max-width: 538px) {
+  .project {
+    padding: 70px 0;
+  }
+
+  .project__info {
+    margin: 0 18px;
+    padding-bottom: 28px;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.04em;
+  }
+
+  .container-info {
+    margin: 0 18px;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .project__content {
+    margin: 60px 0 0 0;
+  }
+
+  .project__about {
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.04em;
+  }
+
+  .project__text {
+    margin: 16px 0 0 0;
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .container-time {
+    margin: 60px 18px 0 18px;
+  }
+
+  .project__time {
+    font-size: 11px;
+    line-height: 13px;
+    padding: 11px 0;
+  }
+
+  .project__stage {
+    margin: 10px 0 0 0;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+  }
+}
