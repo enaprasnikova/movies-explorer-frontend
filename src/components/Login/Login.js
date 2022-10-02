@@ -1,7 +1,29 @@
 import React from 'react';
+import {useState} from 'react';
 import {Link} from "react-router-dom";
+import {useFormWithValidation} from "../useFormWithValidation/useFormWithValidation";
 
-function Login() {
+function Login({ handleAuthorize }) {
+
+  const [response, setResponse] = useState('');
+
+  const {values, handleChange, errors, isValid} = useFormWithValidation({
+    email: '',
+    password: '',
+  });
+  const [isError, setIsError] = useState(false);
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    if (!values.email || !values.password) {
+      return;
+    }
+    handleAuthorize(values, setResponse, setIsError)
+  }
+
+  const buttonSelected = (
+    `login__submit-button ${!isValid ? 'login__submit-button_inactive' : ''}`
+  );
 
   return (
     <section className="login">
@@ -10,18 +32,27 @@ function Login() {
         <h1 className="login__welcome">Рады видеть!</h1>
       </div>
 
-      <form className="login__form">
+      <form className="login__form" onSubmit={handleSubmit} noValidate>
         <div className="input-box">
           <label className="input-name" htmlFor="email">E-mail</label>
-          <input id="email" type="email" name="email" className="login__input"/>
+          <input id="email" type="email" name="email" className="login__input" value={values.email}
+                 onChange={handleChange}
+                 required pattern="\S+@\S+\.\S+"
+          />
+          <span className="input-error">{errors.email}</span>
         </div>
 
         <div className="input-box">
           <label className="input-name" htmlFor="password">Пароль</label>
-          <input id="password" type="password" className="login__input"/>
+          <input id="password" type="password" name="password" className="login__input" value={values.password}
+                 onChange={handleChange}
+                 minLength="5" maxLength="30" required
+          />
+          <span className="input-error">{errors.password}</span>
         </div>
 
-        <button type="submit" className="login__submit-button">Войти</button>
+        <span className="login__error" style={{display: isError ? 'block' : 'none'}}>{response}</span>
+        <button type="submit" className={buttonSelected} disabled={!isValid}>Войти</button>
       </form>
 
       <div className="login__sign-in">

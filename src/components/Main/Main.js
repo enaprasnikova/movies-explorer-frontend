@@ -5,20 +5,18 @@ import AboutProject from "../AboutProject/AboutProject";
 import Techs from "../Techs/Techs";
 import AboutMe from "../AboutMe/AboutMe";
 import Portfolio from "../Portfolio/Portfolio";
-import { Link } from 'react-router-dom';
 
-function Main() {
+function Main({ width, isOpen, onClick, onClose, loggedIn }) {
 
   return (
     <>
       <Header
         name={"main"}
-        children={
-          <div className="header-main">
-            <Link to="/signup" className="header-main__signup">Регистрация</Link>
-            <Link to="/signin" className="header-main__signin">Войти</Link>
-          </div>
-        }
+        onClick={onClick}
+        isOpen={isOpen}
+        onClose={onClose}
+        width={width}
+        loggedIn={loggedIn}
       />
       <main className="page">
         <Promo/>

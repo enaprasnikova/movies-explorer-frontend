@@ -22,16 +22,15 @@
   justify-content: space-between;
   padding: 18px 0;
   margin: 0 70px;
-
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 955px) {
   .header {
-    max-width: 768px;
+    max-width: 955px;
   }
 
   .header__container {
@@ -39,7 +38,7 @@
   }
 }
 
-@media screen and (max-width: 538px) {
+@media screen and (max-width: 481px) {
   .header__logo {
     margin-left: 0;
   }

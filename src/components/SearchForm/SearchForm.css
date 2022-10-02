@@ -2,6 +2,15 @@
   padding: 70px 70px 54px 70px;
 }
 
+.search-form__error {
+  color: #FF4062;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  margin-left: 25px;
+}
+
 .form__container{
   box-sizing: border-box;
   display: flex;
@@ -87,13 +96,13 @@
 }
 
 
-@media screen and (max-width: 842px) {
+@media screen and (max-width: 955px) {
   .search-form {
     padding: 70px 30px 108px 30px;
   }
 }
 
-@media screen and (max-width: 538px) {
+@media screen and (max-width: 481px) {
   .search-form {
     padding: 70px 14px 124px 14px;
   }

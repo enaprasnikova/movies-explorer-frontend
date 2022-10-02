@@ -3,12 +3,22 @@
   max-width: 396px;
   margin: 0 auto;
   flex-grow: 1;
+  width: 100%;
 }
 
 .register__top {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+}
+
+.register__error {
+  color: #FF4062;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
 }
 
 .register__logo {
@@ -60,6 +70,10 @@
   margin: 0;
 }
 
+.register__input:invalid {
+  color: #FF4062;
+}
+
 .register__submit-button {
   background: #000000;
   border-radius: 3px;
@@ -75,6 +89,20 @@
 
 .register__submit-button:hover {
   opacity: .8;
+}
+
+.register__submit-button_inactive {
+  cursor: default;
+  background: #F8F8F8;
+  color: black;
+}
+
+.input-error {
+  color: #FF4062;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
 }
 
 .register__sign-in {

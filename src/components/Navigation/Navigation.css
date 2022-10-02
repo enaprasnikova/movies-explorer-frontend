@@ -34,7 +34,7 @@
   max-width: 100px;
   border: 2px solid rgba(170, 170, 170, .2);
   border-radius: 50px;
-  background-color: #FFFFFF;
+  background-color: transparent;
   cursor: pointer;
   justify-content: center;
   align-items: center;
