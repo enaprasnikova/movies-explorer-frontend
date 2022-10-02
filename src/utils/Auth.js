@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = `${window.location.protocol}${process.env.REACT_APP_API_URL || 'http://localhost:3001'}`;
 
 export const register = (password, email, name) => {
   return fetch(`${BASE_URL}/signup`, {
