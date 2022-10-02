@@ -2,8 +2,6 @@ const BASE_URL = `${window.location.protocol}${process.env.REACT_APP_API_URL || 
 
 class MainApi {
   constructor(options) {
-    console.log(window.location.protocol)
-    console.log(process.env.REACT_APP_API_URL || 'http://localhost:3001')
     this._options = options;
   }
 
