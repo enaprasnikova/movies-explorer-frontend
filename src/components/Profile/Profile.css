@@ -18,7 +18,7 @@
   padding: 106px 0 0 0;
 }
 
-.info-box:nth-child(2) {
+.info-box:nth-child(3) {
   border: none;
 }
 
@@ -47,6 +47,11 @@
   background-color: #FFFFFF;
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+
 .info-box__input::placeholder {
   color: #000000;
   font-style: normal;
@@ -65,13 +70,27 @@
   text-align: center;
   color: #FFFFFF;
   border: none;
-  margin-top: 204px;
   height: 45px;
   cursor: pointer;
 }
 
+.container-button {
+  margin-top: 204px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .profile__save:hover {
   opacity: .8;
+}
+
+.change-response {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: center;
+  color: #FF004C;
 }
 
 .button-profile {
@@ -80,7 +99,7 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 16px;
-  margin-top: 204px;
+  margin-top: 20px;
 }
 
 .profile__edit-button {
