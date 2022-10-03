@@ -19,6 +19,14 @@ function Movies({width, isOpen, onClick, onClose, loggedIn}) {
   const [isEmpty, setEmpty] = useState(false);
 
   useEffect(() => {
+    movieApi.getInitialMovies()
+      .then((movieList) => {
+        moviesHelper.saveAllMovies(movieList);
+      })
+      .catch(() => setError(true))
+  }, [])
+
+  useEffect(() => {
     const config = getStartCountAndOffset(width);
     setConfig(config);
     setMovies(moviesHelper.getMovies(config.count));
@@ -33,13 +41,10 @@ function Movies({width, isOpen, onClick, onClose, loggedIn}) {
     setLoading(true);
     api.getSavedMovies() //Обновляем информацию о сохраненых фильмах
       .then((moviesList) => {
-        savedMoviesHelper.searchMovies(moviesList)
-        return movieApi.getInitialMovies()
-      })
-      .then((moviesList) => {
+        savedMoviesHelper.searchAllMovies(moviesList)
         const config = getStartCountAndOffset(width);
         setConfig(config);
-        moviesHelper.searchMovies(moviesList, parameter);
+        moviesHelper.searchMovies(parameter);
         setNoMoreMovies(moviesHelper.isNoMoreMovies(config.count));
         const arr = moviesHelper.getMovies(config.count);
         setEmpty(arr.length === 0);

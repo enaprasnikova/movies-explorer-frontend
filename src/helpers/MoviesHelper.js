@@ -4,9 +4,14 @@ const urlPattern = /http[s]?:\/\/[w{3}]?[a-zA-Z0-9-]+\.[a-zA-Z0-9-._~:/?#[\]@!$&
 
 class MoviesHelper {
 
-  searchMovies(moviesList, searchParam) {
-    const filteredMovies = this._filterMovies(moviesList, searchParam)
+  saveAllMovies(moviesList) {
+    const arr = this._filterMovies(moviesList)
       .map((el) => this._getPrettyView(el));
+    localStorage.setItem("allMovies", JSON.stringify(arr));
+  }
+
+  searchMovies(searchParam) {
+    const filteredMovies = this._filterMovies(JSON.parse(localStorage.getItem('allMovies') || []), searchParam);
     const shortedMovies = this._getShortedMovies(filteredMovies);
 
     localStorage.setItem('movies', JSON.stringify(filteredMovies));
@@ -81,6 +86,7 @@ class MoviesHelper {
 
   clear() {
     localStorage.removeItem('movies')
+    localStorage.removeItem('allMovies')
     localStorage.removeItem('shortMovies')
     localStorage.removeItem('moviesSearchParam')
     localStorage.removeItem('showShortMovies')
@@ -88,8 +94,15 @@ class MoviesHelper {
 
 
   _filterMovies(arr, parameter) {
-    return arr.filter((el) => (el.nameRU.includes(parameter) || el.nameEN.includes(parameter))
-      && urlPattern.test(el.trailerLink))
+    return arr.filter((el) => {
+      if (parameter) {
+        return (el.nameRU.toLowerCase().includes(parameter.toLowerCase())
+          || el.nameEN.toLowerCase().includes(parameter.toLowerCase()))
+        && urlPattern.test(el.trailerLink)
+      } else {
+        return urlPattern.test(el.trailerLink);
+      }
+    })
   }
 
   _getShortedMovies(arr) {

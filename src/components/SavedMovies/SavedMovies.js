@@ -9,29 +9,29 @@ import {moviesHelper} from "../../helpers/MoviesHelper";
 
 function SavedMovies({width, isOpen, onClick, onClose, loggedIn}) {
 
-  const [movies, setMovies] = useState(savedMoviesHelper.getMovies());
+  const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isError, setError] = useState(false);
   const [isEmpty, setEmpty] = useState(false);
+  const [showShort, setShowShort] = useState(false);
+  const [parameter, setParameter] = useState('');
 
   const handleSearchMovies = (parameter) => {
     setLoading(true);
-    api.getSavedMovies()
-      .then((moviesList) => {
-        savedMoviesHelper.searchMovies(moviesList, parameter);
-        const arr = savedMoviesHelper.getMovies();
-        setEmpty(arr.length === 0);
-        setMovies(arr);
-      })
-      .catch(() => setError(true))
-      .finally(() => setLoading(false));
-  }
-
-  const handleSearchShortMovies = (parameter) => {
-    savedMoviesHelper.setShowShort(parameter);
-    const arr = savedMoviesHelper.getMovies();
+    setParameter(parameter);
+    const arr = savedMoviesHelper.getMovies(showShort, parameter);
     setEmpty(arr.length === 0);
     setMovies(arr);
+    setLoading(false);
+  }
+
+  const handleSearchShortMovies = (showShort) => {
+    setLoading(true);
+    setShowShort(showShort);
+    const arr = savedMoviesHelper.getMovies(showShort, parameter);
+    setEmpty(arr.length === 0);
+    setMovies(arr);
+    setLoading(false);
   }
 
   const handleOnMovieClick = (movie) => {
@@ -47,7 +47,16 @@ function SavedMovies({width, isOpen, onClick, onClose, loggedIn}) {
 
 
   useEffect(() => {
-    handleSearchMovies();
+    setLoading(true);
+    api.getSavedMovies()
+      .then((moviesList) => {
+        savedMoviesHelper.searchAllMovies(moviesList);
+        const arr = savedMoviesHelper.getMovies(showShort);
+        setEmpty(arr.length === 0);
+        setMovies(arr);
+      })
+      .catch(() => setError(true))
+      .finally(() => setLoading(false));
   }, [])
 
   return (
@@ -64,8 +73,8 @@ function SavedMovies({width, isOpen, onClick, onClose, loggedIn}) {
       <main className="page">
         <SearchForm
           handleSearchMovies={handleSearchMovies}
-          parameter={savedMoviesHelper.getSearchParam()}
-          checkboxParameter={savedMoviesHelper.getShowShort()}
+          parameter={parameter}
+          checkboxParameter={showShort}
           handleSearchShortMovies={handleSearchShortMovies}
         />
         {loading ? <Preloader/> :

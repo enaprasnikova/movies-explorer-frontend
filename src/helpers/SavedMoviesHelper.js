@@ -1,37 +1,19 @@
 class SavedMoviesHelper {
-  searchMovies(moviesList, searchParam) {
-    const filteredMovies = this._filterMovies(moviesList, searchParam);
-    const shortedMovies = this._getShortedMovies(filteredMovies);
-
+  searchAllMovies(moviesList) {
+    const shortedMovies = this._getShortedMovies(moviesList);
     localStorage.setItem('allSavedMovies', JSON.stringify(moviesList));
-    localStorage.setItem('savedMovies', JSON.stringify(filteredMovies));
     localStorage.setItem('shortSavedMovies', JSON.stringify(shortedMovies));
-    localStorage.setItem('savedMoviesSearchParam', searchParam || '');
   }
 
-  getMovies() {
-    const showShort = JSON.parse(localStorage.getItem('showShortSavedMovies'));
-    return !showShort ? JSON.parse(localStorage.getItem('savedMovies')) || []
-      : JSON.parse(localStorage.getItem('shortSavedMovies')) || [];
-  }
-
-  getSearchParam() {
-    return localStorage.getItem('savedMoviesSearchParam') || '';
-  }
-
-  setShowShort(parameter) {
-    localStorage.setItem('showShortSavedMovies', parameter);
-  }
-
-  getShowShort() {
-    return JSON.parse(localStorage.getItem('showShortSavedMovies')) || false;
+  getMovies(showShort, parameter) {
+    const arr = showShort ? JSON.parse(localStorage.getItem('shortSavedMovies')) || []
+      : JSON.parse(localStorage.getItem('allSavedMovies')) || [];
+    return this._filterMovies(arr, parameter);
   }
 
   deleteMovie(movie) {
-    const movies = JSON.parse(localStorage.getItem('savedMovies')) || [];
     const shortMovies = JSON.parse(localStorage.getItem('shortSavedMovies')) || [];
     const allSavedMovies = JSON.parse(localStorage.getItem('allSavedMovies')) || [];
-    localStorage.setItem('savedMovies', JSON.stringify(movies.filter((el) => el._id !== movie._id)));
     localStorage.setItem('shortSavedMovies', JSON.stringify(shortMovies.filter((el) => el._id !== movie._id)));
     localStorage.setItem('allSavedMovies', JSON.stringify(allSavedMovies.filter((el) => el._id !== movie._id)));
   }
@@ -47,14 +29,13 @@ class SavedMoviesHelper {
 
   clear() {
     localStorage.removeItem('allSavedMovies')
-    localStorage.removeItem('savedMovies')
     localStorage.removeItem('shortSavedMovies')
-    localStorage.removeItem('savedMoviesSearchParam')
-    localStorage.removeItem('showShortSavedMovies')
   }
 
   _filterMovies(arr, parameter) {
-    return arr.filter((el) => parameter ? (el.nameRU.includes(parameter) || el.nameEN.includes(parameter)) : true)
+    return arr.filter((el) => parameter ?
+      (el.nameRU.toLowerCase().includes(parameter.toLowerCase()) ||
+        el.nameEN.toLowerCase().includes(parameter.toLowerCase())) : true)
   }
 
   _getShortedMovies(arr) {

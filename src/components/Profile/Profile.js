@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Header from "../Header/Header";
 import {CurrentUserContext} from '../../contexts/CurrentUserContext';
+import {EMAIL_AND_NAME_THE_SAME} from "../../utils/constants";
 
 
 function Profile({width, isOpen, onClick, onClose, signOut, handleUpdateUser, loggedIn}) {
@@ -56,7 +57,11 @@ function Profile({width, isOpen, onClick, onClose, signOut, handleUpdateUser, lo
 
   function handleSubmit(e) {
     e.preventDefault()
-    handleUpdateUser(name, email, handleSuccessResponse, handleErrorResponse)
+    if (name === user.name && email === user.email) {
+      setResponse(EMAIL_AND_NAME_THE_SAME);
+    } else {
+      handleUpdateUser(name, email, handleSuccessResponse, handleErrorResponse)
+    }
   }
 
   function handleSuccessResponse(msg) {

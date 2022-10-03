@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Route, Switch, useHistory} from 'react-router-dom';
+import {Redirect, Route, Switch, useHistory} from 'react-router-dom';
 import './App.css';
 import Main from '../Main/Main';
 import Movies from "../Movies/Movies";
@@ -90,17 +90,20 @@ function App() {
     const jwt = localStorage.getItem('token');
 
     if (jwt) {
-      getContent(jwt).then((res) => {
-        if (res) {
-          setLoggedIn(true)
-          setLoading(false)
-          if (callback) {
-            callback();
+      getContent(jwt)
+        .then((res) => {
+          if (res) {
+            setLoggedIn(true)
+            setLoading(false)
+            if (callback) {
+              callback();
+            }
           }
-        }
-      });
+        })
+        .catch(() => signOut());
     } else {
-      setLoading(false)
+      signOut()
+      setLoading(false);
     }
   }
 
@@ -187,15 +190,17 @@ function App() {
         </ProtectedRoute>
 
         <Route exact path="/signin">
-          <Login
-            handleAuthorize={handleAuthorize}
-          />
+          {loggedIn ? <Redirect to={'/movies'}/> :
+            <Login
+              handleAuthorize={handleAuthorize}
+            />}
         </Route>
 
         <Route exact path="/signup">
-          <Register
-            handleRegister={handleRegister}
-          />
+          {loggedIn ? <Redirect to={'/movies'}/> :
+            <Register
+              handleRegister={handleRegister}
+            />}
         </Route>
 
         <Route path="*">
